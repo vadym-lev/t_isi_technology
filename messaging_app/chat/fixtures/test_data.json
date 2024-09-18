@@ -1,1 +1,953 @@
-[{"model": "chat.thread", "pk": 1, "fields": {"created": "2024-09-17T20:18:53.244Z", "updated": "2024-09-17T20:18:53.244Z", "participants": [1, 2]}}, {"model": "chat.thread", "pk": 2, "fields": {"created": "2024-09-17T20:20:08.791Z", "updated": "2024-09-17T20:20:08.791Z", "participants": [3, 4]}}, {"model": "chat.message", "pk": 1, "fields": {"thread": 1, "sender": 1, "text": "Hello, user2!", "created": "2024-09-17T20:34:29.405Z", "is_read": true}}, {"model": "chat.message", "pk": 2, "fields": {"thread": 1, "sender": 2, "text": "Hello, user1! How are you?", "created": "2024-09-17T20:35:54.089Z", "is_read": true}}]
+[
+  {
+    "fields": {
+      "created": "2024-09-17T20:18:53.244Z",
+      "updated": "2024-09-17T20:18:53.244Z",
+      "participants": [
+        1,
+        2
+      ]
+    },
+    "model": "chat.thread",
+    "pk": 1
+  },
+  {
+    "model": "chat.thread",
+    "pk": 2,
+    "fields": {
+      "created": "2024-09-17T20:20:08.791Z",
+      "updated": "2024-09-17T20:20:08.791Z",
+      "participants": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "chat.thread",
+    "pk": 3,
+    "fields": {
+      "created": "2024-09-18T14:29:14.141Z",
+      "updated": "2024-09-18T14:29:14.141Z",
+      "participants": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "model": "chat.thread",
+    "pk": 4,
+    "fields": {
+      "created": "2024-09-18T15:30:05.764Z",
+      "updated": "2024-09-18T15:30:05.764Z",
+      "participants": [
+        3,
+        6
+      ]
+    }
+  },
+  {
+    "model": "chat.thread",
+    "pk": 5,
+    "fields": {
+      "created": "2024-09-18T15:58:02.705Z",
+      "updated": "2024-09-18T15:58:02.705Z",
+      "participants": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 1,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "Hello, user2!",
+      "created": "2024-09-17T20:34:29.405Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 2,
+    "fields": {
+      "thread": 1,
+      "sender": 2,
+      "text": "Hello, user1! How are you?",
+      "created": "2024-09-17T20:35:54.089Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 3,
+    "fields": {
+      "thread": 1,
+      "sender": 2,
+      "text": "And how do you like my present that you should have received the day before yesterday?",
+      "created": "2024-09-18T14:53:59Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 4,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "user2, , I'm fine. I went to the theater last Saturday. Also, my younger brother started school this year.",
+      "created": "2024-09-18T14:57:32Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 5,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "Thank you for the gift. But I haven't received it yet. And I just checked my mail, I haven't received any delivery notices yet",
+      "created": "2024-09-18T15:00:15Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 6,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "I hope that this situation will be resolved soon",
+      "created": "2024-09-18T15:02:12Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 7,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Hey, how's the weather today?",
+      "created": "2024-09-18T15:14:33.370Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 8,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "It's been really sunny here.",
+      "created": "2024-09-18T15:14:33.455Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 9,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "I heard there's going to be rain later this week.",
+      "created": "2024-09-18T15:14:33.509Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 10,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Yeah, it's been a bit unpredictable.",
+      "created": "2024-09-18T15:14:33.576Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 11,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Do you like rainy weather?",
+      "created": "2024-09-18T15:14:33.643Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 12,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Not really. I prefer it sunny, but some rain is nice too.",
+      "created": "2024-09-18T15:14:33.734Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 13,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "It helps the plants grow, so that's a good thing.",
+      "created": "2024-09-18T15:14:33.799Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 14,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "True! Especially after long dry seasons.",
+      "created": "2024-09-18T15:14:33.864Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 15,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "How's the weather in your area?",
+      "created": "2024-09-18T15:14:33.932Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 16,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "A bit cloudy but not too cold. Perfect for a walk.",
+      "created": "2024-09-18T15:14:34.001Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 17,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "I hope it doesn't rain tomorrow. I have plans for a picnic.",
+      "created": "2024-09-18T15:14:34.066Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 18,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Oh, sounds fun! Hope the weather stays nice.",
+      "created": "2024-09-18T15:14:34.132Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 19,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "What do you usually do when it rains?",
+      "created": "2024-09-18T15:14:34.199Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 20,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "I like to stay in and read books. You?",
+      "created": "2024-09-18T15:14:34.254Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 21,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "I do the same sometimes, or just watch a movie.",
+      "created": "2024-09-18T15:14:34.311Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 22,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Sounds cozy!",
+      "created": "2024-09-18T15:14:34.377Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 23,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Yeah, it's a good way to relax.",
+      "created": "2024-09-18T15:14:34.445Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 24,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Have you seen the forecast for next week?",
+      "created": "2024-09-18T15:14:34.511Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 25,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Not yet. Is it supposed to rain all week?",
+      "created": "2024-09-18T15:14:34.578Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 26,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "It looks like it, but you never know with these forecasts.",
+      "created": "2024-09-18T15:14:34.656Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 27,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "True! Sometimes it changes at the last moment.",
+      "created": "2024-09-18T15:14:34.720Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 28,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Do you trust weather apps?",
+      "created": "2024-09-18T15:14:34.788Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 29,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Mostly, but I always double-check.",
+      "created": "2024-09-18T15:14:34.856Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 30,
+    "fields": {
+      "thread": 3,
+      "sender": 5,
+      "text": "Same here, better to be prepared.",
+      "created": "2024-09-18T15:14:34.920Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 31,
+    "fields": {
+      "thread": 3,
+      "sender": 1,
+      "text": "Well, let's hope for good weather this weekend!",
+      "created": "2024-09-18T15:14:34.988Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 32,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "Have you ever read a book that was later adapted into a movie?",
+      "created": "2024-09-18T15:30:06.752Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 33,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "I always feel like the books are so much better.",
+      "created": "2024-09-18T15:30:06.843Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 34,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "But some adaptations are still pretty good, right?",
+      "created": "2024-09-18T15:30:06.908Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 35,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "What about Harry Potter? The movies are great, but the books have so much more detail.",
+      "created": "2024-09-18T15:30:06.976Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 36,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "Do you think a movie can capture the magic of a book?",
+      "created": "2024-09-18T15:30:07.043Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 37,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "I totally agree! Sometimes it feels like movies miss out on the deeper themes of a book, especially the character development. It's hard to fit everything into a two-hour film.",
+      "created": "2024-09-18T15:30:07.121Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 38,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "I recently read 'The Shining' by Stephen King and then watched the movie. The film is a classic, but there are some key differences that really change the tone of the story.",
+      "created": "2024-09-18T15:30:07.185Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 39,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "One thing I love about book-to-movie adaptations is seeing how directors interpret scenes that are left more open in the text.",
+      "created": "2024-09-18T15:30:07.255Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 40,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "It's also fun to compare the pacing. Books can take their time, but movies often rush through certain parts.",
+      "created": "2024-09-18T15:30:07.322Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 41,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "I haven't read the 'Game of Thrones' books, but the series was amazing despite some flaws in the later seasons.",
+      "created": "2024-09-18T15:30:07.398Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 42,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "True! And some book series are so complex that it feels impossible to capture everything on screen.",
+      "created": "2024-09-18T15:30:07.464Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 43,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "By the way, have you ever read 'The Lord of the Rings'? The movies are epic, but the books have a depth that the films can't quite reach.",
+      "created": "2024-09-18T15:30:07.533Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 44,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "Oh yes, 'The Lord of the Rings' is a masterpiece in both formats, though the books really dive into the lore.",
+      "created": "2024-09-18T15:30:07.599Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 45,
+    "fields": {
+      "thread": 4,
+      "sender": 3,
+      "text": "Do you prefer reading fantasy or watching fantasy films?",
+      "created": "2024-09-18T15:30:07.664Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 46,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "Honestly, I love both! Reading allows me to imagine everything myself, but films bring everything to life in a different way.",
+      "created": "2024-09-18T15:30:07.733Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 47,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "If you're into epic battles and deep lore, I highly recommend re-reading 'The Lord of the Rings'.",
+      "created": "2024-09-18T15:30:07.800Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 48,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "The Battle of Helm's Deep is especially iconic. The way the scene unfolds in the book is breathtaking, as it builds up the tension.",
+      "created": "2024-09-18T15:30:07.864Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 49,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "In the film, the visual effects bring the battle to life, but in the book, you can really feel the strategy and fear of the characters.",
+      "created": "2024-09-18T15:30:07.932Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 50,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "Another great moment is the Battle of Pelennor Fields. Tolkien describes it so vividly, especially the confrontation with the Witch-king.",
+      "created": "2024-09-18T15:30:07.999Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 51,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "The emotional stakes during these battles are so high, especially when you know the characters' internal struggles.",
+      "created": "2024-09-18T15:30:08.054Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 52,
+    "fields": {
+      "thread": 4,
+      "sender": 6,
+      "text": "You should check out the appendices too�they give so much more background on the world and the events before the War of the Ring.",
+      "created": "2024-09-18T15:30:08.122Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 53,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "Any plans for the weekend? I'm thinking we could go somewhere.",
+      "created": "2024-09-18T15:38:28.394Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 54,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "How about we check out a new restaurant or maybe go for a walk in the park?",
+      "created": "2024-09-18T15:38:29.235Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 55,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "I heard there�s a food festival happening downtown.",
+      "created": "2024-09-18T15:38:29.301Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 56,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "Or we could catch a movie�there are some good ones showing right now.",
+      "created": "2024-09-18T15:38:29.368Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 57,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "Actually, I�ve been thinking we could do something a bit different. I saw that there�s a dance performance happening at the KPI Cultural Center. It�s supposed to be really great, with professional dancers from different countries participating.",
+      "created": "2024-09-18T15:38:29.434Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 58,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "Yeah, I read a review about it. People are saying it�s one of the best performances in the city this month. They�ve got everything from contemporary to traditional styles, and the stage setup is supposed to be amazing. We could go check it out!",
+      "created": "2024-09-18T15:38:29.503Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 59,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "That sounds perfect! Let�s do the dance performance at KPI Cultural Center.",
+      "created": "2024-09-18T15:38:29.569Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 60,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "Great! I�ll book the tickets, and we can meet there on Saturday evening.",
+      "created": "2024-09-18T15:38:29.649Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 61,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "Wow, that was an incredible performance! I loved the mix of styles, especially the contemporary pieces. The choreography was so creative.",
+      "created": "2024-09-18T15:38:29.714Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 62,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "Yeah, I�m still thinking about that last piece. The way the dancers moved, it was like they were telling a story without any words. What was your favorite part?",
+      "created": "2024-09-18T15:38:29.779Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 63,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "The lighting and stage design were also stunning. It really added to the whole experience.",
+      "created": "2024-09-18T15:38:29.847Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 64,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "I think my favorite part was the traditional dance�they really captured the cultural essence. Plus, the live music was fantastic.",
+      "created": "2024-09-18T15:38:29.914Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 65,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "I agree, the live music made it even better. The drums and the strings gave it a really immersive feel.",
+      "created": "2024-09-18T15:38:29.981Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 66,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "I�ve never been to a performance quite like that. It�s definitely something I�d recommend to others.",
+      "created": "2024-09-18T15:38:30.048Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 67,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "I�m so glad we decided to go to that show. It was definitely the highlight of the weekend.",
+      "created": "2024-09-18T15:38:30.091Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 68,
+    "fields": {
+      "thread": 2,
+      "sender": 4,
+      "text": "By the way, have you heard about the concert by Klavdia Petrovna next weekend?",
+      "created": "2024-09-18T15:38:30.148Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 69,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "She�s one of the best vocalists in the city, and I�ve been wanting to see her live for ages.",
+      "created": "2024-09-18T15:38:30.213Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 70,
+    "fields": {
+      "thread": 2,
+      "sender": 3,
+      "text": "We should definitely check it out. I�ll get the tickets, and we can go together!",
+      "created": "2024-09-18T15:38:30.281Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 71,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "Hey, have you seen 'The Count of Monte Cristo'? I just watched it last night, and it's incredible!",
+      "created": "2024-09-18T15:58:02.888Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 72,
+    "fields": {
+      "thread": 5,
+      "sender": 6,
+      "text": "Yes, I�ve seen it! It�s one of my favorite movies. The story is so gripping, and the character development is top-notch.",
+      "created": "2024-09-18T15:58:02.949Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 73,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "I was really impressed with how they portrayed the Count�s transformation from an innocent man into someone seeking revenge.",
+      "created": "2024-09-18T15:58:03.016Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 74,
+    "fields": {
+      "thread": 5,
+      "sender": 6,
+      "text": "Absolutely! The way they showed his journey from being imprisoned to becoming this powerful, calculated figure was masterful. The film captured the essence of betrayal, hope, and revenge perfectly. Some of the scenes, especially the ones in the prison, were so intense, you could feel the weight of his situation. It�s amazing how he never gave up, even after all those years of suffering. The pacing was also spot on.",
+      "created": "2024-09-18T15:58:03.082Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 75,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "By the way, did you know that in the Ukrainian dub, the voice of the Count was done by Volodymyr Dantes? I was totally surprised by that! He did such a great job�his voice added a lot of depth to the character.",
+      "created": "2024-09-18T15:58:03.149Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 76,
+    "fields": {
+      "thread": 5,
+      "sender": 6,
+      "text": "What?! I had no idea that was Dantes! Now that you mention it, the voice did sound familiar. He really nailed the emotions of the character. One of my favorite scenes was when the Count revealed his true identity at the dinner�it was so dramatic!",
+      "created": "2024-09-18T15:58:03.216Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 77,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "Yeah, that scene was epic! The tension in the room was palpable. Another one that stood out for me was the sword fight near the end. It was choreographed so well, and you could feel the stakes in every strike.",
+      "created": "2024-09-18T15:58:03.305Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 78,
+    "fields": {
+      "thread": 5,
+      "sender": 6,
+      "text": "I�m thinking of getting a new TV. Do you have any recommendations?",
+      "created": "2024-09-18T15:58:03.373Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 79,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "Yeah, it depends on your budget. But I�d suggest looking at the Samsung QLED series. They have great picture quality and the smart features are solid.",
+      "created": "2024-09-18T15:58:03.441Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 80,
+    "fields": {
+      "thread": 5,
+      "sender": 6,
+      "text": "I�ve heard good things about them. I want something with good color accuracy and that supports 4K streaming. Does the QLED offer that?",
+      "created": "2024-09-18T15:58:03.507Z",
+      "is_read": true
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 81,
+    "fields": {
+      "thread": 5,
+      "sender": 5,
+      "text": "Definitely! The QLED series has amazing color accuracy, especially if you�re into watching movies in high quality. The 4K support is top-notch, and the contrast is great for darker scenes. I�ve had mine for a few months now and I�m really happy with it. It also has a good selection of built-in apps, including Megogo, Netflix, and YouTube, which is super convenient.",
+      "created": "2024-09-18T15:58:03.572Z",
+      "is_read": false
+    }
+  }
+]
