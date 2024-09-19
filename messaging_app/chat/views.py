@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Thread, Message
 from .serializers import ThreadSerializer, MessageSerializer, UnreadMessagesCountSerializer
-from .permissions import IsAdminOrThreadParticipant
+from .permissions import IsAdminOrThreadParticipant, IsThreadParticipant
 
 # Thread creation
 class ThreadCreateView(generics.CreateAPIView):
@@ -41,6 +41,7 @@ class UserThreadsListView(generics.ListAPIView):
 
 class ThreadDeleteView(generics.DestroyAPIView):
     queryset = Thread.objects.all()
+    # Admin or thread members can delete a thread
     permission_classes = [IsAuthenticated, IsAdminOrThreadParticipant]
 
     def get_object(self):
@@ -57,25 +58,32 @@ class ThreadDeleteView(generics.DestroyAPIView):
 # Message creation and list
 class MessageCreateView(generics.CreateAPIView):
     serializer_class = MessageSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsThreadParticipant]
 
-    def perform_create(self, serializer):
+    def create(self, request, *args, **kwargs):
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
         thread = serializer.validated_data['thread']
-        # Checking if the user is a member of this thread
-        if self.request.user not in thread.participants.all():
-            raise PermissionDenied("You are not a member of this thread and cannot post messages.")
-        serializer.save(sender=self.request.user)
+        self.check_object_permissions(self.request, thread)
+        message = serializer.save(sender=self.request.user)
+
+        return Response(
+            {"detail": "Message sent successfully", "message_id": message.id},
+            status=status.HTTP_201_CREATED
+        )
 
 class MessageListView(generics.ListAPIView):
     serializer_class = MessageSerializer
-    permission_classes = [IsAuthenticated]  # Custom permission
+    # Admin or thread members can get the thread
+    permission_classes = [IsAuthenticated, IsAdminOrThreadParticipant]
 
     def get_queryset(self):
         thread_id = self.kwargs['thread_id']
         thread = Thread.objects.get(id=thread_id)
         # Checking the participant through permissions
-        if self.request.user not in thread.participants.all():
-            raise PermissionDenied("You are not a member of this thread and cannot receive messages.")
+        self.check_object_permissions(self.request, thread)
         return Message.objects.filter(thread=thread)
 
 # Mark message as read
@@ -88,8 +96,7 @@ class MarkMessageAsReadView(generics.UpdateAPIView):
         message = self.get_object()
         thread = message.thread
         # Check if the user is a member and not a sender
-        if request.user not in thread.participants.all():
-            raise PermissionDenied("You are not a member of this thread.")
+        self.check_object_permissions(request, thread)
         if request.user == message.sender:
             raise PermissionDenied("You cannot mark your own message as read.")
         message.is_read = True

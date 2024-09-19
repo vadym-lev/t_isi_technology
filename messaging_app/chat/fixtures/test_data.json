@@ -60,6 +60,18 @@
     }
   },
   {
+    "model": "chat.thread",
+    "pk": 11,
+    "fields": {
+      "created": "2024-09-19T15:13:08.672Z",
+      "updated": "2024-09-19T15:13:08.672Z",
+      "participants": [
+        1,
+        4
+      ]
+    }
+  },
+  {
     "model": "chat.message",
     "pk": 1,
     "fields": {
@@ -947,6 +959,61 @@
       "sender": 5,
       "text": "Definitely! The QLED series has amazing color accuracy, especially if you�re into watching movies in high quality. The 4K support is top-notch, and the contrast is great for darker scenes. I�ve had mine for a few months now and I�m really happy with it. It also has a good selection of built-in apps, including Megogo, Netflix, and YouTube, which is super convenient.",
       "created": "2024-09-18T15:58:03.572Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 83,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "Your gift has arrived. They called me from almost and said that they mixed up my package at the distribution point. They apologized and asked to pick up the package",
+      "created": "2024-09-19T14:56:01.595Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 84,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "I plan to unpack it with my family tonight",
+      "created": "2024-09-19T14:57:59.278Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 85,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": ")))",
+      "created": "2024-09-19T15:01:48.235Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 86,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": "I am delighted that there are so many useful items in the gift set. It will be difficult for me to find a worthy welcome gift for you",
+      "created": "2024-09-19T15:07:27.360Z",
+      "is_read": false
+    }
+  },
+  {
+    "model": "chat.message",
+    "pk": 87,
+    "fields": {
+      "thread": 1,
+      "sender": 1,
+      "text": ")))",
+      "created": "2024-09-19T15:11:46.277Z",
       "is_read": false
     }
   }

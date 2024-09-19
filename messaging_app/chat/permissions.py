@@ -1,4 +1,5 @@
 from rest_framework import permissions
+from rest_framework.exceptions import PermissionDenied
 
 class IsAdminOrThreadParticipant(permissions.BasePermission):
     """
@@ -11,4 +12,15 @@ class IsAdminOrThreadParticipant(permissions.BasePermission):
             return True
         # Check if user is a participant of the thread
         return request.user in obj.participants.all()
+
+
+class IsThreadParticipant(permissions.BasePermission):
+    """
+    A permission class that checks if a user is a member of a thread.
+    """
+    def has_object_permission(self, request, view, obj):
+
+        if request.user not in obj.participants.all():
+            raise PermissionDenied("You are not a member of this thread")
+        return True
 
