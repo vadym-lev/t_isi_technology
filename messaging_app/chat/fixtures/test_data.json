@@ -1,5 +1,7 @@
 [
   {
+    "model": "chat.thread",
+    "pk": 1,
     "fields": {
       "created": "2024-09-17T20:18:53.244Z",
       "updated": "2024-09-17T20:18:53.244Z",
@@ -7,9 +9,7 @@
         1,
         2
       ]
-    },
-    "model": "chat.thread",
-    "pk": 1
+    }
   },
   {
     "model": "chat.thread",

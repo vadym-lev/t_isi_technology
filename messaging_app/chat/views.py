@@ -1,9 +1,10 @@
 from rest_framework import generics, status
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Thread, Message
-from .serializers import ThreadSerializer, MessageSerializer
-from django.contrib.auth.models import User
+from .serializers import ThreadSerializer, MessageSerializer, UnreadMessagesCountSerializer
+from .permissions import IsAdminOrThreadParticipant
 
 # Thread creation
 class ThreadCreateView(generics.CreateAPIView):
@@ -21,6 +22,9 @@ class ThreadCreateView(generics.CreateAPIView):
         else:
             raise ValueError('Thread must have exactly 2 participants.')
 
+        if self.request.user not in serializer.validated_data['participants']:
+            raise PermissionDenied("You must be a member of the thread.")
+
         thread = serializer.save()
         thread.participants.add(*participants)
 
@@ -34,41 +38,77 @@ class UserThreadsListView(generics.ListAPIView):
     def get_queryset(self):
         return Thread.objects.filter(participants=self.request.user)
 
+
+class ThreadDeleteView(generics.DestroyAPIView):
+    queryset = Thread.objects.all()
+    permission_classes = [IsAuthenticated, IsAdminOrThreadParticipant]
+
+    def get_object(self):
+        thread_id = self.kwargs['thread_id']
+        thread = Thread.objects.get(id=thread_id)
+        self.check_object_permissions(self.request, thread)
+        return thread
+
+    def delete(self, request, *args, **kwargs):
+        thread = self.get_object()
+        self.perform_destroy(thread)
+        return Response({"detail": "Thread deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+
 # Message creation and list
 class MessageCreateView(generics.CreateAPIView):
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
+        thread = serializer.validated_data['thread']
+        # Checking if the user is a member of this thread
+        if self.request.user not in thread.participants.all():
+            raise PermissionDenied("You are not a member of this thread and cannot post messages.")
         serializer.save(sender=self.request.user)
 
 class MessageListView(generics.ListAPIView):
     serializer_class = MessageSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]  # Custom permission
 
     def get_queryset(self):
         thread_id = self.kwargs['thread_id']
-        return Message.objects.filter(thread__id=thread_id)
+        thread = Thread.objects.get(id=thread_id)
+        # Checking the participant through permissions
+        if self.request.user not in thread.participants.all():
+            raise PermissionDenied("You are not a member of this thread and cannot receive messages.")
+        return Message.objects.filter(thread=thread)
 
 # Mark message as read
 class MarkMessageAsReadView(generics.UpdateAPIView):
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        return Message.objects.filter(id=self.kwargs.get('pk'))
+    queryset = Message.objects.all()
 
     def update(self, request, *args, **kwargs):
         message = self.get_object()
+        thread = message.thread
+        # Check if the user is a member and not a sender
+        if request.user not in thread.participants.all():
+            raise PermissionDenied("You are not a member of this thread.")
+        if request.user == message.sender:
+            raise PermissionDenied("You cannot mark your own message as read.")
         message.is_read = True
         message.save()
         serializer = self.get_serializer(message)
         return Response(serializer.data)
 
+
 # Unread messages count
 class UnreadMessagesCountView(generics.ListAPIView):
+    serializer_class = UnreadMessagesCountSerializer
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
-        unread_count = Message.objects.filter(thread__participants=request.user, is_read=False).count()
+        # count the number of unread messages where the user is the recipient
+        unread_count = Message.objects.filter(
+            thread__participants=request.user,
+            is_read=False
+        ).exclude(sender=request.user).count()
+
         return Response({'unread_count': unread_count})
+
